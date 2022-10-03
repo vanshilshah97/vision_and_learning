@@ -28,11 +28,4 @@ YOLO is an extremely fast real time multi object detection algorithm. In this pr
 ### Average Precision
 ![](images/5.png)
 
-I observed that all the different components of losses go down in parallel. The loss came down to : range 7-15 , over 40 epochs, with a learning rate of 10e-4. 
-
-The performance of the network could be improved in terms of speed if we could parallelize the AP calculation and Non-maximal suppression. 
-
-Issues while training: I used a learning rate of 10e-3 and torch.exp after the last layer which resulted in an exploding gradients problem. It worked when I changed the learning rate to 10e-4. It also exposed a problem with using torch.exp as it did not constrain probability values of P(Objectness) and P(Class) within 0-1.
-
-The performance could be improved if we trained for more epochs. If the training set was larger, we would better learn the underlying distribution.
 
